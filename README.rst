@@ -1,0 +1,1 @@
+This is ssd1331 driver for esp32 esp-idf. Basically its 2 different drivers. One is rewrited adafruit ssd1331 arduino driver and the other is based on ili9341 driver writen by SpriteTM here https://github.com/espressif/esp32-nesemu/tree/master/components/nofrendo-esp32. Both drivers are compatible and are using Adafruit_GFX library.
