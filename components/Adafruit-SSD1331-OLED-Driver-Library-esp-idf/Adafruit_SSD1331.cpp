@@ -14,13 +14,15 @@
   BSD license, all text above must be included in any redistribution
  ****************************************************/
 
-#include "../Adafruit-SSD1331-OLED-Driver-Library-esp-idf/Adafruit_SSD1331.h"
+#include "Adafruit_SSD1331.h"
 
 #include "glcdfont.c"
 
 #include "soc/gpio_reg.h"
 #include "soc/gpio_sig_map.h"
-#include "soc/gpio_struct.h"
+extern "C" {
+    #include "soc/gpio_struct.h"
+}
 #include "soc/io_mux_reg.h"
 #include "soc/spi_reg.h"
 

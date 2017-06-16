@@ -2,7 +2,7 @@
  * benchmark.h
  *
  *  Created on: 11.06.2017
- *      Author: darek
+ *      Author: chegewara
  */
 
 #ifndef _SSD1331_BENCHMARK_

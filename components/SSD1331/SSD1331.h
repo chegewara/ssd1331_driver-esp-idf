@@ -2,7 +2,7 @@
  * SSD1331.h
  *
  *  Created on: 15.06.2017
- *      Author: darek
+ *      Author: chegewara
  */
 #include <Adafruit_GFX.h>
 
@@ -81,7 +81,7 @@ public:
 	void begin();
 	void writeFrame(const uint16_t x, const uint16_t y, const uint16_t width, const uint16_t height, const uint8_t *data[]);
 	  void drawPixel(int16_t x, int16_t y, uint16_t color);
-	  void drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color);
+//	  void drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color);
 //	  void fillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
 /*	  void drawRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
 	  void pushColor(uint16_t c);

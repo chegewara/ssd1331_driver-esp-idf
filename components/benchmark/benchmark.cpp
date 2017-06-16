@@ -2,11 +2,11 @@
  * benchmark.cpp
  *
  *  Created on: 11.06.2017
- *      Author: darek
+ *      Author: chegewara
  */
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
-
+#include <math.h>
 #include <Adafruit_GFX.h>
 #include "benchmark.h"
 
@@ -18,7 +18,7 @@
 #endif
 
 	display = disp;
-	x0 = display->width()/2;
+	x0 = 25; //display->width()/2;
 	y0 = display->height()/2;
 
 }

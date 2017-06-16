@@ -2,7 +2,7 @@
  * SSD1331.cpp
  *
  *  Created on: 15.06.2017
- *      Author: darek
+ *      Author: chegewara
  */
 
 #include <string.h>
@@ -12,7 +12,9 @@
 #include "rom/gpio.h"
 #include "soc/gpio_reg.h"
 #include "soc/gpio_sig_map.h"
-#include "soc/gpio_struct.h"
+extern "C" {
+    #include "soc/gpio_struct.h"
+}
 #include "soc/io_mux_reg.h"
 #include "soc/spi_reg.h"
 #include "freertos/FreeRTOS.h"
@@ -220,7 +222,7 @@ void SSD1331::clearWindow(int16_t x0, int16_t y0, int16_t x1, int16_t y1){
 
 	vTaskDelay(SSD1331_DELAYS_HWFILL/portTICK_PERIOD_MS);
 }
-
+/*
 void SSD1331::drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color) {
   // check rotation, move pixel around if necessary
   switch (getRotation()) {
@@ -269,7 +271,7 @@ void SSD1331::drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t 
   writeCommand((uint8_t)((color << 1) & 0x3F));
   vTaskDelay(SSD1331_DELAYS_HWLINE/portTICK_PERIOD_MS);
 }
-
+*/
 void SSD1331::drawPixel(int16_t x, int16_t y, uint16_t color) {
 
 	  if ((x < 0) || (x >= width()) || (y < 0) || (y >= height())) return;
@@ -410,8 +412,8 @@ void SSD1331::spiMasterInit()
 //    SET_PERI_REG_BITS(SPI_CTRL2_REG(SPI_NUM), SPI_MISO_DELAY_MODE, 0, SPI_MISO_DELAY_MODE_S);
 //    CLEAR_PERI_REG_MASK(SPI_SLAVE_REG(SPI_NUM), SPI_SLAVE_MODE);
 
-    WRITE_PERI_REG(SPI_CLOCK_REG(SPI_NUM), (1 << SPI_CLKCNT_N_S) | (1 << SPI_CLKCNT_L_S));//40MHz
-    //WRITE_PERI_REG(SPI_CLOCK_REG(SPI_NUM), SPI_CLK_EQU_SYSCLK); // 80Mhz
+    //WRITE_PERI_REG(SPI_CLOCK_REG(SPI_NUM), (1 << SPI_CLKCNT_N_S) | (1 << SPI_CLKCNT_L_S));//40MHz
+    WRITE_PERI_REG(SPI_CLOCK_REG(SPI_NUM), SPI_CLK_EQU_SYSCLK); // 80Mhz
 
     SET_PERI_REG_MASK(SPI_USER_REG(SPI_NUM), SPI_CS_SETUP | SPI_CS_HOLD | SPI_USR_MOSI);
 //    SET_PERI_REG_MASK(SPI_CTRL2_REG(SPI_NUM), ((0x4 & SPI_MISO_DELAY_NUM) << SPI_MISO_DELAY_NUM_S));
