@@ -61,8 +61,8 @@ extern gpio_dev_t GPIO;
 void Adafruit_SSD1331::spiwrite(uint8_t d) {
 
 	spi_transaction_t trans_desc;
-		trans_desc.address   = 0;
-		trans_desc.command   = 0;
+		trans_desc.addr   = 0;
+		trans_desc.cmd   = 0;
 		trans_desc.flags     = 0;
 		trans_desc.length    = 8;
 		trans_desc.rxlength  = 0;
